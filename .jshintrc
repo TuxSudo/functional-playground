@@ -1,0 +1,9 @@
+{
+    "undef": true,
+    // "unused": true,
+    "maxstatements": 15,
+    "maxdepth": 2,
+    "maxcomplexity": 5,
+    "esnext": true
+    // "predef": ["MY_GLOBAL"]
+}

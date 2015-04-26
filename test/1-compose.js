@@ -23,7 +23,6 @@ describe('compose functions', () => {
 
     it('composes functions', () => {
 
-
         var plus1 = x => x + 1,
             plus2 = compose(plus1, plus1),
             plus3 = compose(plus2, plus1);
@@ -31,8 +30,6 @@ describe('compose functions', () => {
         assert.equal(plus1(1), 2);
         assert.equal(plus2(2), 4);
         assert.equal(plus3(3), 6);
-
-
 
     });
 
@@ -47,7 +44,6 @@ describe('compose functions', () => {
         assert.equal( squareThenHalf(10), 50);
         assert.equal( squareThenHalf(1), .5);
         assert.equal( squareThenHalf(4), 8);
-
 
 
     });

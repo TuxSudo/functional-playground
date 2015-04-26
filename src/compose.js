@@ -1,10 +1,7 @@
 export default function (...fns) {
 
     return function(x) {
-        return fns.reduce( function(lastval, thisfn) {
-            return thisfn( lastval );
-
-        }, x);
+        return fns.reduce( (lastval, thisfn) => thisfn( lastval ), x );
     };
 
 }

@@ -38,12 +38,19 @@ describe('compose functions', () => {
 
         var square = x => x * x,
             half = x => x / 2,
-            squareThenHalf = compose(square, half);
+            x2 = x => 2 * x,
+            squareThenHalf = compose(square, half),
+            doubleThenSquareThenHalf = compose(x2, square, half);
 
 
         assert.equal( squareThenHalf(10), 50);
         assert.equal( squareThenHalf(1), .5);
         assert.equal( squareThenHalf(4), 8);
+
+        assert.equal(doubleThenSquareThenHalf(1), 2);
+        assert.equal(doubleThenSquareThenHalf(3), 18);
+
+
 
 
     });

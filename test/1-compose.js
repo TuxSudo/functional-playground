@@ -3,10 +3,7 @@ import assert from 'assert';
 
 
 
-
 describe('compose functions', () => {
-
-
 
 
     it('will be imported', () => {

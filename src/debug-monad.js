@@ -11,22 +11,26 @@ import compose from './compose';
 
 
 // convert a simple value into a debug object
-var unit = value => { return {value, trace: [] }; },
+var unit = function(value) {
+        return {
+            value: value,
+            trace: []
+        };
+    },
 
-// convert the output of a simple value into a debug object);
-    lift = f=>compose(unit, f),
+    // convert the output of a simple value into a debug object);
+    lift = fn => compose(fn, unit),
 
 
-// convert a normal function into one that operates on and returns a debug object.
-
+    // bind :: value->value -> {value, trace}->{value, trace}
     bind = function(fn) {
         return function( { value, trace } ) {
             
-            value = fn( value );
+            let newVal = fn( value );
 
-            trace.push( (fn.name || fn.toString() ) + ' was called. value is now: ' + value);
+            trace.push( value + ' in; ' + newVal + ' out');
 
-            return { value, trace };
+            return { value: newVal, trace };
         };
     };
 

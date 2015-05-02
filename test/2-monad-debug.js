@@ -34,7 +34,7 @@ describe('debug monad', () => {
         var squareDebug = bind( x=>x*x ),
             doubleDebug = bind( x=>2*x ),
             tripleDebug = bind(x=>3*x ),
-            squareThenDoubleThenTriple = compose(squareDebug, doubleDebug, tripleDebug),
+            squareThenDoubleThenTriple = compose(tripleDebug, doubleDebug, squareDebug),
             results = squareThenDoubleThenTriple( unit(2) );
 
         assert.equal( typeof results, "object");

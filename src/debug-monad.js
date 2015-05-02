@@ -19,7 +19,7 @@ var unit = function(value) {
     },
 
     // convert the output of a simple value into a debug object);
-    lift = fn => compose(fn, unit),
+    lift = fn => compose(unit, fn),
 
 
     // bind :: value->value -> {value, trace}->{value, trace}

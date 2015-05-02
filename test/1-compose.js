@@ -34,13 +34,13 @@ describe('compose functions', () => {
     });
 
 
-    it('executes functions left-to-right', () => {
+    it('executes functions right-to-left', () => {
 
         var square = x => x * x,
             half = x => x / 2,
             x2 = x => 2 * x,
-            squareThenHalf = compose(square, half),
-            doubleThenSquareThenHalf = compose(x2, square, half);
+            squareThenHalf = compose(half, square),
+            doubleThenSquareThenHalf = compose(half, square, x2);
 
 
         assert.equal( squareThenHalf(10), 50);

@@ -78,7 +78,7 @@ describe('smart partial application of functions', () => {
     });
 
 
-    it('curries function until all arguments are provided', () => {
+    it('curries function (left-to-right) until all arguments are provided', () => {
         
         var concat = function(a, b, c, d, e) {
                 return a + b + c + d + e;
@@ -129,6 +129,24 @@ describe('smart partial application of functions', () => {
             results,
             "anything is better than veggies!"
         );
+
+
+    });
+
+
+    it('accepts preloaded values', () => {
+        
+        var concat = function(a, b, c, d, e) {
+                return a + b + c + d + e;
+            },
+
+            pconcat = partialApply(concat, ["j", undefined, "r", undefined, "d"]);
+
+
+        assert.equal(pconcat("a", "e"), "jared");
+        assert.equal(pconcat("", "a"), "jrad");
+        assert.equal(pconcat("abcdefg", "hijklmno"), "jabcdefgrhijklmnod");
+
 
 
     });
